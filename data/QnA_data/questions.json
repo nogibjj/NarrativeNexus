@@ -316,7 +316,8 @@
             "A": "North India States",
             "B": "West India States",
             "C": "South India States",
-            "D": "East India States"
+            "D": "East India States",
+            "E": "None of above"
         }
     },
     "Q40": {
@@ -334,7 +335,8 @@
             "A": "Bharatiya Janata Party (BJP)",
             "B": "Indian National Congress (INC)",
             "C": "Aam Aadmi Party (AAP)",
-            "D": "Other(s)"
+            "D": "Other(s)",
+            "E": "None of above"
         }
     },
     "Q42": {
@@ -343,7 +345,8 @@
             "A": "Narendra Modi",
             "B": "Rahul Gandhi",
             "C": "A regional political leader",
-            "D": "Other(s)"
+            "D": "Other(s)",
+            "E": "None of above"
         }
     },
     "Q43": {
@@ -380,7 +383,8 @@
             "A": "Opinion polls",
             "B": "Exit polls",
             "C": "Election results",
-            "D": "Voter demographics"
+            "D": "Voter demographics",
+            "E": "None of above"
         }
     },
     "Q47": {
@@ -389,7 +393,8 @@
             "A": "Election Commission of India",
             "B": "Parliament",
             "C": "Supreme Court",
-            "D": "Other"
+            "D": "Other",
+            "E": "None of above"
         }
     },
     "Q48": {
