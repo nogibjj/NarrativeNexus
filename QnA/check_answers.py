@@ -34,24 +34,24 @@ def validate_answers(articles, valid_limits):
         article['answers'] = new_answers
     return articles
 
-# def validate_answers(articles):
-#     """Validates that all answers are one of 'A', 'B', 'C', 'D', 'E'."""
-#     valid_answers = {'A', 'B', 'C', 'D', 'E'}
-#     for i, article in enumerate(articles):
-#         new_answers = {}
-#         for key, value in article['answers'].items():
-#             if value not in valid_answers:
-#                 print(f"Article {i+1}, Question {key}: Invalid answer '{value}'")
-#                 new_key = input(f"Enter the correct question number for Question {key}: ")
-#                 new_value = input(f"Enter the correct answer for Question {new_key}: ")
-#                 while new_value not in valid_answers:
-#                     print("Invalid answer. Please enter one of 'A', 'B', 'C', 'D', or 'E'.")
-#                     new_value = input(f"Enter the correct answer for Question {new_key}: ")
-#                 new_answers[new_key] = new_value
-#             else:
-#                 new_answers[key] = value
-#         article['answers'] = new_answers
-#     return articles
+def validate_answers_1(articles):
+    """Validates that all answers are one of 'A', 'B', 'C', 'D', 'E'."""
+    valid_answers = {'A', 'B', 'C', 'D', 'E'}
+    for i, article in enumerate(articles):
+        new_answers = {}
+        for key, value in article['answers'].items():
+            if value not in valid_answers:
+                print(f"Article {i+1}, Question {key}: Invalid answer '{value}'")
+                new_key = input(f"Enter the correct question number for Question {key}: ")
+                new_value = input(f"Enter the correct answer for Question {new_key}: ")
+                while new_value not in valid_answers:
+                    print("Invalid answer. Please enter one of 'A', 'B', 'C', 'D', or 'E'.")
+                    new_value = input(f"Enter the correct answer for Question {new_key}: ")
+                new_answers[new_key] = new_value
+            else:
+                new_answers[key] = value
+        article['answers'] = new_answers
+    return articles
 
 def get_choices_limits(questions):
     """Returns a list of the number of possible choices for each question."""
@@ -78,10 +78,10 @@ def main():
 
     # filename = "QnA_summary_zho_Territorial_disputes_in_the_South_China_Sea_100.json"
     # filename = "QnA_summary_eng_Territorial_disputes_in_the_South_China_Sea_100.json"
-    # filename = "QnA_summary_zho_Gaza_100.json"
+    filename = "QnA_summary_zho_Gaza_100.json"
     # filename = "QnA_summary_eng_Gaza_100.json"
     # filename = "QnA_summary_hin_India_election_2024_100.json"
-    filename = "QnA_summary_eng_India_election_2024_100.json"
+    # filename = "QnA_summary_eng_India_election_2024_100.json"
     filepath = data_path + filename
 
     # Read the JSON file
@@ -100,6 +100,7 @@ def main():
     print(f"All articles have {total_questions} answers.")
 
     # Validate and correct answers
+    # articles = validate_answers_1(articles)
     articles = validate_answers(articles, valid_limits)
     print("All answers have been validated.")
     # Write the modified data back to the JSON file
