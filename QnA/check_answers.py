@@ -65,30 +65,30 @@ def get_choices_limits(questions):
 def main():
     # data_path = "./data/raw_data/"
     data_path = "./data/QnA_data/"
-    questions = read_json_file("./data/QnA_data/questions.json")
+    questions = read_json_file("./data/QnA_data/formated_output_questions.json")
 
     # Get the number of choices for each question
     valid_limits = get_choices_limits(questions)
     
     # Ensure the list has 80 elements
-    if len(valid_limits) != 80:
-        print(f"Warning: The number of questions is {len(valid_limits)}, expected 80.")
+    if len(valid_limits) != 119:
+        print(f"Warning: The number of questions is {len(valid_limits)}, expected 119.")
 
     # filename = "QnA_test.json"
 
-    # filename = "QnA_summary_zho_Territorial_disputes_in_the_South_China_Sea_100.json"
-    # filename = "QnA_summary_eng_Territorial_disputes_in_the_South_China_Sea_100.json"
-    filename = "QnA_summary_zho_Gaza_100.json"
-    # filename = "QnA_summary_eng_Gaza_100.json"
-    # filename = "QnA_summary_hin_India_election_2024_100.json"
-    # filename = "QnA_summary_eng_India_election_2024_100.json"
+    # filename = "auto_QnA_summary_zho_Territorial_disputes_in_the_South_China_Sea_100.json"
+    # filename = "auto_QnA_summary_eng_Territorial_disputes_in_the_South_China_Sea_100.json"
+    # filename = "auto_QnA_summary_zho_Gaza_100.json"
+    # filename = "auto_QnA_summary_eng_Gaza_100.json"
+    # filename = "auto_QnA_summary_hin_India_election_2024_100.json"
+    filename = "auto_QnA_summary_eng_India_election_2024_100.json"
     filepath = data_path + filename
 
     # Read the JSON file
     articles = read_json_file(filepath)
     
     # Ensure all articles have exactly 80 answers
-    total_questions = 80
+    total_questions = 119
     for i, article in enumerate(articles):
         if 'answers' not in article:
             print(f"Article {i+1} is missing the 'answers' key.")
@@ -97,12 +97,12 @@ def main():
         if len(article['answers']) != total_questions:
             print(f"Article {i+1} has {len(article['answers'])} answers.")
             return
-    print(f"All articles have {total_questions} answers.")
+    print(f"All articles have {total_questions} answers in {filename}")
 
     # Validate and correct answers
-    # articles = validate_answers_1(articles)
+    articles = validate_answers_1(articles)
     articles = validate_answers(articles, valid_limits)
-    print("All answers have been validated.")
+    print(f"All answers have been validated in {filename}.")
     # Write the modified data back to the JSON file
     write_json_file(filepath, articles)
 
