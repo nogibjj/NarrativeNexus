@@ -65,30 +65,30 @@ def get_choices_limits(questions):
 def main():
     # data_path = "./data/raw_data/"
     data_path = "./data/QnA_data/"
-    questions = read_json_file("./data/QnA_data/formated_output_questions.json")
+    questions = read_json_file("./data/QnA_data/formated_output_questions_v2.json")
 
     # Get the number of choices for each question
     valid_limits = get_choices_limits(questions)
     
     # Ensure the list has 80 elements
-    if len(valid_limits) != 119:
+    if len(valid_limits) != 52:
         print(f"Warning: The number of questions is {len(valid_limits)}, expected 119.")
 
     # filename = "QnA_test.json"
 
-    # filename = "auto_QnA_summary_zho_Territorial_disputes_in_the_South_China_Sea_100.json"
-    # filename = "auto_QnA_summary_eng_Territorial_disputes_in_the_South_China_Sea_100.json"
-    # filename = "auto_QnA_summary_zho_Gaza_100.json"
-    # filename = "auto_QnA_summary_eng_Gaza_100.json"
-    # filename = "auto_QnA_summary_hin_India_election_2024_100.json"
-    filename = "auto_QnA_summary_eng_India_election_2024_100.json"
+    # filename = "v2_auto_QnA_summary_zho_Territorial_disputes_in_the_South_China_Sea_100.json"
+    # filename = "v2_auto_QnA_summary_eng_Territorial_disputes_in_the_South_China_Sea_100.json"
+    # filename = "v2_auto_QnA_summary_zho_Gaza_100.json"
+    # filename = "v2_auto_QnA_summary_eng_Gaza_100.json"
+    # filename = "v2_auto_QnA_summary_hin_India_election_2024_100.json"
+    # filename = "v2_auto_QnA_summary_eng_India_election_2024_100.json"
     filepath = data_path + filename
 
     # Read the JSON file
     articles = read_json_file(filepath)
     
     # Ensure all articles have exactly 80 answers
-    total_questions = 119
+    total_questions = 52
     for i, article in enumerate(articles):
         if 'answers' not in article:
             print(f"Article {i+1} is missing the 'answers' key.")
